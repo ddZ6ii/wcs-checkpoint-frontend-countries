@@ -1,1 +1,5 @@
-// you can put your types here
+export type Country = {
+  id: number
+  name: string
+  emoji: string
+}
