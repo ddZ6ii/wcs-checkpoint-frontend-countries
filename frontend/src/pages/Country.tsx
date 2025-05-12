@@ -37,7 +37,7 @@ export function CountryPage() {
         <h2>
           Name: {country.name} ({country.code})
         </h2>
-        {country.continent.name && <p>Continent: {country.continent.name}</p>}
+        {country.continent?.name && <p>Continent: {country.continent.name}</p>}
       </div>
     </div>
   )

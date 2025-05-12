@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
 import { Header } from "./Header"
 
 export function PageLayout() {
@@ -8,6 +9,7 @@ export function PageLayout() {
       <main className="p-4 container mx-auto">
         <Outlet />
       </main>
+      <ToastContainer />
     </div>
   )
 }
