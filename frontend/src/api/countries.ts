@@ -5,6 +5,7 @@ export const GET_COUNTRIES = gql(/* GraphQL */ `
     countries {
       id
       name
+      code
       emoji
     }
   }

@@ -1,14 +1,14 @@
 import { useSuspenseQuery } from "@apollo/client"
 import { GET_COUNTRIES } from "../api/countries"
 import { Country } from "../types"
+import { Link } from "react-router-dom"
 
-export default function Countries() {
+export function CountryList() {
   const { data: { countries = [] } = {}, error } = useSuspenseQuery<{
-    countries: Country[]
+    countries: Omit<Country, "continent">[]
   }>(GET_COUNTRIES)
 
   if (error) {
-    console.error(error)
     return <p>No countries currently available...</p>
   }
 
@@ -19,8 +19,10 @@ export default function Countries() {
           key={country.id}
           className="grid gap-1 border border-neutral-200 p-4 rounded-md shadow-sm hover:shadow-lg cursor-pointer hover:bg-neutral-50 transition-all duration-150 hover:shadow-accent-500/10 place-items-center"
         >
-          <h2>{country.name}</h2>
-          <span className="text-2xl">{country.emoji}</span>
+          <Link to={`/countries/${country.code.toLowerCase()}`}>
+            <h2>{country.name}</h2>
+            <span className="text-2xl">{country.emoji}</span>
+          </Link>
         </li>
       ))}
     </ul>

@@ -1,4 +1,4 @@
-export default function Loader() {
+export function Loader() {
   return (
     <div className="flex h-full justify-center items-center gap-1">
       <span className="sr-only">Loading...</span>
